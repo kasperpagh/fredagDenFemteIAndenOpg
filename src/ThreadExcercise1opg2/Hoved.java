@@ -1,7 +1,7 @@
 /*
 Svar på
  */
-package ThreadExcerciseopg2;
+package ThreadExcercise1opg2;
 
 /**
  *
