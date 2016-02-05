@@ -20,15 +20,15 @@ import java.util.logging.Logger;
 public class ClientHandler extends Thread
 {
 
-    Socket s;
-    Server server;
+    private Socket s;
+    private Server server;
     private Scanner scan;
-    boolean running;
-    boolean pendingId;
-    boolean isMonitor;
-    PrintWriter pw;
-    int personalCount;
-    int id;
+    private boolean running;
+    private boolean pendingId;
+    private boolean isMonitor;
+    private PrintWriter pw;
+    private int personalCount;
+    private int id;
 
     public ClientHandler(Socket s, Server server, int id)
     {
@@ -104,8 +104,8 @@ public class ClientHandler extends Thread
                     pw.println("her er de enkelte tings count: ");
                     for (ClientHandler ch : bob)
                     {
-                        
-                        pw.println("ID: " + ch.id + ", Antal: " +ch.personalCount);
+
+                        pw.println("ID: " + ch.id + ", Antal: " + ch.personalCount);
                     }
                     pw.println();
                 }

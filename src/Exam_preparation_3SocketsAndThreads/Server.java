@@ -10,34 +10,25 @@ import java.util.concurrent.locks.ReentrantLock;
 
 //SVAR PÅ OPG B. Der er et potentielt race problem med både countThing og count, da alle clientHandler tårde skriver til dne. har fixet med lock, alternativt kunne jeg have brugt
 //volatile keyword, like so: "volatile int count;"
-
-
-
-
-
-
-
 //Protocol INFO: først skal der sendes et usr type, enten "ting" eller "monitor" alt efter om man vil være en tælletingklient eller en monitorklient
 //Der efter kan man skrive følgende som ting: "#guest" (tæller en guest op), "#stop" (lukker socket).
 //Som monitor kan man skrive følgende: "#getGuestCount" (returnerer det totale antal gæster), "#getIndividualCounts" (giver id og individuelt antal for alle connectede tælleapparater,
 //"#getThingCount" (giver antalet af pt. tilsluttede tællemaskiner).
-
-
 public class Server
 {
 
-    ServerSocket ss;
-    ServerSocket ssm;
-    Socket s;
-    String ip;
-    int port;
-    boolean running;
-    int count;
-    int thingCount;
-    Lock lock = new ReentrantLock();
-    int clientIds = 0;
-    ArrayList<ClientHandler> clientList;
-    int id;
+    private ServerSocket ss;
+    private ServerSocket ssm;
+    private Socket s;
+    private String ip;
+    private int port;
+    private boolean running;
+    private int count;
+    private int thingCount;
+    private Lock lock = new ReentrantLock();
+    private int clientIds = 0;
+    private ArrayList<ClientHandler> clientList;
+    private int id;
 
     public void registerThing()
     {
